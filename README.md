@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Muji Website
 
-## Getting Started
+牧机私域 AI 系统官网，面向客户介绍微信私域运营、AI 分身、客户画像、自动回复、朋友圈触达、群聊线索和跟进任务。
 
-First, run the development server:
+## 本地开发
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+访问 `http://localhost:3000`。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 构建
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+项目使用 Next.js 静态导出，构建产物输出到 `out/`。
 
-To learn more about Next.js, take a look at the following resources:
+## Cloudflare Pages 部署
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Cloudflare Pages 推荐配置：
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| 配置项 | 值 |
+|---|---|
+| Repository | `liangpeili/muji-website` |
+| Production branch | `main` |
+| Framework preset | `Next.js (Static HTML Export)` |
+| Build command | `npx next build` |
+| Build output directory | `out` |
 
-## Deploy on Vercel
+在 Cloudflare Dashboard 中进入 **Workers & Pages**，创建 Pages 项目并导入 GitHub 仓库即可。后续推送到 `main` 会自动触发重新构建和部署。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+如果 Cloudflare 构建环境 Node 版本过低，在 Pages 项目的环境变量中设置：
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+NODE_VERSION=22
+```
