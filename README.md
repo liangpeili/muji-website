@@ -33,8 +33,8 @@ Cloudflare Pages 推荐配置：
 
 在 Cloudflare Dashboard 中进入 **Workers & Pages**，创建 Pages 项目并导入 GitHub 仓库即可。后续推送到 `main` 会自动触发重新构建和部署。
 
-如果 Cloudflare 构建环境 Node 版本过低，在 Pages 项目的环境变量中设置：
+仓库已通过 `.node-version` 固定 Cloudflare 构建使用 Node.js `22.16.0`。如果 Pages 项目里已经设置过 `NODE_VERSION`，请确保它不是 `22` 或 `22.22.0` 这类会解析到 npm 11 的值，改为：
 
 ```text
-NODE_VERSION=22
+NODE_VERSION=22.16.0
 ```
