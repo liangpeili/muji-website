@@ -1,22 +1,22 @@
-const navItems = ["系统架构", "核心能力", "控制台", "安全部署"];
+const navItems = ["产品价值", "核心能力", "控制台", "安全保障"];
 
 const systemParts = [
   {
-    name: "主机端",
-    project: "muji-wechat-bridge",
-    summary: "连接微信运行环境，采集消息事实，接收服务端任务并执行朋友圈、跟评和状态同步。",
-    facts: ["消息采集", "任务执行", "二维码与截图", "静默时段"],
+    name: "微信连接助手",
+    project: "稳定连接",
+    summary: "把微信里的客户消息、朋友圈互动和群聊动态稳定同步到系统，让运营团队不再依赖人工盯号。",
+    facts: ["消息同步", "朋友圈互动", "群聊动态", "状态提醒"],
   },
   {
-    name: "服务端",
-    project: "muji-server",
-    summary: "多号主 SaaS 后端，承载实时网关、AI 处理、任务队列、知识库和画像分析。",
-    facts: ["多租户隔离", "Redis Streams", "Chat Worker", "Job Worker"],
+    name: "AI 运营大脑",
+    project: "智能决策",
+    summary: "理解客户意图、匹配知识内容、生成回复建议，并根据规则控制哪些内容可以自动执行。",
+    facts: ["客户画像", "知识匹配", "回复建议", "风险控制"],
   },
   {
-    name: "管理控制台",
-    project: "muji-dashboard",
-    summary: "运营人员配置数字分身、联系人、用户画像、私域任务、朋友圈和运行日志。",
+    name: "运营控制台",
+    project: "团队协作",
+    summary: "销售、客服和运营人员统一管理数字分身、客户画像、跟进任务、朋友圈内容和效果数据。",
     facts: ["数字分身", "联系人运营", "群聊情报", "运行日志"],
   },
 ];
@@ -24,19 +24,19 @@ const systemParts = [
 const workflow = [
   {
     label: "数据接入",
-    text: "微信消息、联系人、朋友圈、群聊事件进入系统，形成可追踪的消息事实链。",
+    text: "客户消息、联系人、朋友圈互动和群聊动态自动汇总，减少人工复制和漏看。",
   },
   {
-    label: "AI 理解",
-    text: "清洗、画像、Persona、知识库、媒体理解共同决定回复和运营建议。",
+    label: "客户理解",
+    text: "系统根据历史沟通和客户行为生成画像，帮助团队判断客户兴趣、阶段和下一步动作。",
   },
   {
-    label: "自动执行",
-    text: "自动回复、定时朋友圈、跟评和任务跟进通过 Gateway 下发到远端设备。",
+    label: "智能协助",
+    text: "常见问题可自动回复，复杂问题给出建议，朋友圈和跟进任务按计划提醒或执行。",
   },
   {
     label: "运营管理",
-    text: "审核、安全规则、运行日志、任务状态和用量统计让 AI 可控、可审计。",
+    text: "安全规则、人工审核、任务状态和操作记录让团队知道 AI 做了什么、为什么做。",
   },
   {
     label: "业务洞察",
@@ -46,22 +46,22 @@ const workflow = [
 
 const dashboardViews = [
   ["首页看板", "系统状态、今日数据、待处理事项和互动趋势集中呈现。"],
-  ["数字分身", "管理人格画像、知识文件、审核工作台和安全规则。"],
+  ["数字分身", "管理沟通风格、知识内容、审核工作台和安全规则。"],
   ["联系人画像", "沉淀客户标签、聊天统计、画像详情与沟通建议。"],
   ["私域任务", "用任务看板、规则和管道视图推动销售与运营跟进。"],
-  ["定时朋友圈", "规划内容、设置发布时间，并由主机端按任务执行。"],
-  ["运行日志", "跟踪 Gateway、后台任务、健康检查和最近活动。"],
+  ["定时朋友圈", "提前规划内容和发布时间，让触达节奏更稳定。"],
+  ["运行日志", "记录关键动作、异常提醒和最近活动，方便团队复盘。"],
 ];
 
 const aiFlow = [
-  "消息进入",
-  "规则判断",
-  "知识库检索",
-  "媒体理解",
-  "LLM 生成",
-  "安全审核",
-  "Gateway 下发",
-  "结果记录",
+  "客户发起咨询",
+  "识别问题类型",
+  "匹配知识内容",
+  "生成回复建议",
+  "安全规则检查",
+  "必要时人工审核",
+  "发送或提醒跟进",
+  "沉淀客户记录",
 ];
 
 const scenarios = [
@@ -83,15 +83,22 @@ const scenarios = [
   },
 ];
 
-const securityItems = [
-  "多号主隔离",
-  "元数据库 + 号主独立数据库",
-  "JWT 认证",
-  "日志审计",
-  "Redis Streams 任务队列",
-  "Gateway 状态监控",
-  "失败重试与 dead letter",
-  "私有化部署支持",
+const trustItems = [
+  "客户数据隔离",
+  "成员权限控制",
+  "敏感内容拦截",
+  "回复前审核",
+  "关键操作留痕",
+  "异常状态提醒",
+  "可随时人工接管",
+  "客户沟通记录可复盘",
+];
+
+const adoptionSteps = [
+  "确认业务场景：客服、销售、社群或内容运营。",
+  "整理常见问题、产品资料和客户分层规则。",
+  "用演示账号跑通数字分身、画像和跟进任务。",
+  "小范围试点，再逐步扩大到更多微信号和团队成员。",
 ];
 
 function SectionHeader({
@@ -171,19 +178,19 @@ export default function Home() {
           <span className="hero-kicker">牧机私域 AI 系统</span>
           <h1>让每个微信号拥有可控的 AI 分身</h1>
           <p>
-            连接主机端、服务端与管理控制台，覆盖消息接入、客户画像、自动回复、朋友圈运营、群聊情报与任务跟进。
+            帮助销售、客服和运营团队统一管理客户沟通、自动回复、朋友圈触达、群聊线索和跟进任务。
           </p>
           <div className="hero-actions" aria-label="主要操作">
             <a className="button primary" href="#contact">
               预约演示
             </a>
-            <a className="button secondary" href="#系统架构">
+            <a className="button secondary" href="#产品价值">
               查看系统能力
             </a>
           </div>
         </div>
 
-        <div className="system-board" aria-label="牧机三端系统链路示意">
+        <div className="system-board" aria-label="牧机私域运营流程示意">
           <div className="board-status">
             <span>LIVE SYSTEM</span>
             <strong>消息、任务、状态三链路在线</strong>
@@ -200,11 +207,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section architecture" id="系统架构">
+      <section className="section architecture" id="产品价值">
         <SectionHeader
-          eyebrow="THREE-END ARCHITECTURE"
-          title="不是单点机器人，而是一套可交付的私域运行系统"
-          description="牧机把微信运行环境、实时网关、AI 处理、任务队列和运营控制台拆成清晰边界，降低黑盒风险。"
+          eyebrow="PRIVATE DOMAIN OPERATING SYSTEM"
+          title="不只是自动回复，而是私域运营的日常工作台"
+          description="牧机把微信连接、AI 辅助和团队管理放在同一套流程里，让客户沟通、内容触达和销售跟进都有据可查。"
         />
         <div className="architecture-grid">
           {systemParts.map((part) => (
@@ -226,7 +233,7 @@ export default function Home() {
         <SectionHeader
           eyebrow="OPERATING WORKFLOW"
           title="按运营工作流组织 AI，而不是堆叠功能菜单"
-          description="从数据进入到业务洞察，每一步都有系统模块承接，并保留审核、日志和失败恢复。"
+          description="从客户消息进入到销售跟进，每一步都围绕运营团队的日常动作设计，减少重复劳动，也保留人工判断空间。"
         />
         <div className="workflow-rail">
           {workflow.map((item, index) => (
@@ -243,7 +250,7 @@ export default function Home() {
         <SectionHeader
           eyebrow="DASHBOARD PREVIEW"
           title="运营团队看得见、管得住、追得上"
-          description="首版官网先使用控制台结构化示意，后续替换为演示账号的脱敏真实截图。"
+          description="控制台围绕团队每天要看的客户、内容、任务和结果组织，帮助管理者快速判断运营状态。"
         />
         <div className="console-grid">
           {dashboardViews.map(([title, description], index) => (
@@ -255,8 +262,8 @@ export default function Home() {
       <section className="section ai-chain">
         <SectionHeader
           eyebrow="CONTROLLED AI REPLY"
-          title="自动回复链路清晰可审计"
-          description="AI 回复不是黑盒生成，规则、知识库、媒体理解、安全审核和结果记录共同决定最终动作。"
+          title="AI 可以自动，但必须可控"
+          description="牧机把客户问题、知识匹配、回复建议、安全检查和人工审核放进同一条链路，避免 AI 失控地替团队发声。"
         />
         <div className="ai-flow" aria-label="AI 自动回复链路">
           {aiFlow.map((step, index) => (
@@ -272,7 +279,7 @@ export default function Home() {
         <SectionHeader
           eyebrow="PRIVATE DOMAIN SCENARIOS"
           title="覆盖客服、销售、社群和内容运营"
-          description="每个场景都对应现有系统模块，避免把 AI 包装成无法落地的全自动承诺。"
+          description="每个场景都从团队真实工作出发：减少重复沟通，发现高价值客户，保持触达节奏。"
         />
         <div className="scenario-grid">
           {scenarios.map((scenario) => (
@@ -284,16 +291,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section security" id="安全部署">
+      <section className="section security" id="安全保障">
         <div>
-          <span className="eyebrow">SECURITY & DELIVERY</span>
-          <h2>企业客户关心的边界，放在官网前台说清楚</h2>
+          <span className="eyebrow">TRUST & CONTROL</span>
+          <h2>客户沟通不能交给黑盒，AI 必须有边界</h2>
           <p>
-            系统支持多号主隔离、私有化部署、任务重试和运行日志，让销售、交付和技术评估人员能快速判断部署可行性。
+            牧机强调可审核、可追踪、可接管。团队可以先从建议模式开始，再逐步开放自动化范围。
           </p>
         </div>
         <ul>
-          {securityItems.map((item) => (
+          {trustItems.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
@@ -301,15 +308,14 @@ export default function Home() {
 
       <section className="section onboarding">
         <SectionHeader
-          eyebrow="GET STARTED"
-          title="四步接入牧机私域 AI 系统"
-          description="首版官网面向客户和交付人员说明路径，详细命令放到后续部署文档页。"
+          eyebrow="PILOT PLAN"
+          title="从一个可控试点开始"
+          description="客户只需要先选定一个高频场景，用真实问题和资料跑通效果，再决定是否扩大到更多账号和团队。"
         />
         <ol>
-          <li>部署主机端，连接微信运行环境。</li>
-          <li>配置服务端，启用 API、Gateway、Worker 和任务队列。</li>
-          <li>登录管理控制台，完成号主、规则和知识库配置。</li>
-          <li>导入数据并启动数字分身，逐步打开自动回复和运营任务。</li>
+          {adoptionSteps.map((step) => (
+            <li key={step}>{step}</li>
+          ))}
         </ol>
       </section>
 
@@ -324,7 +330,7 @@ export default function Home() {
 
       <footer className="site-footer">
         <strong>Muji AI</strong>
-        <span>主机端 · 服务端 · 管理控制台</span>
+        <span>微信私域 · AI 分身 · 客户运营</span>
       </footer>
     </main>
   );
